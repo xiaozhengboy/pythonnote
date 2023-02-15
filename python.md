@@ -34,17 +34,17 @@ python：
 
 地址：[Welcome to Python.org](https://www.python.org/)
 
-![image-20221220153607962](D:\Typora\picture\image-20221220153607962.png)
+![image-20221220153607962](.\python\image-20221220153607962.png)
 
-![image-20221220153733291](D:\Typora\picture\image-20221220153733291.png)
+![image-20221220153733291](.\python\image-20221220153733291.png)
 
-![image-20221220153757747](D:\Typora\picture\image-20221220153757747.png)
+![image-20221220153757747](.\python\image-20221220153757747.png)
 
-![image-20221220153829882](D:\Typora\picture\image-20221220153829882.png)
+![image-20221220153829882](.\python\image-20221220153829882.png)
 
-![image-20221220153909698](D:\Typora\picture\image-20221220153909698.png)
+![image-20221220153909698](.\python\image-20221220153909698.png)
 
-![image-20221220153924098](D:\Typora\picture\image-20221220153924098.png)
+![image-20221220153924098](.\python\image-20221220153924098.png)
 
 验证：cmd   
 
@@ -286,7 +286,7 @@ sample(seq,k) # 从列表seq中，随机取k个。不会修改原有序列
 
 ## 7 数据类型
 
-![image-20221220233302667](D:\Typora\picture\image-20221220233302667.png)
+![image-20221220233302667](.\python\image-20221220233302667.png)
 
 ### 7.0 数据类型知识
 

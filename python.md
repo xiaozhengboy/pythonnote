@@ -6,7 +6,7 @@
 
 # python基础
 
-author：李政震
+author：小政
 
 
 

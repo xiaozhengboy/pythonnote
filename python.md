@@ -824,7 +824,7 @@ S^T
 S|T
 ```
 
-![集合间运算](D:\Typora\picture\image-20221221193550502.png)
+![集合间运算](python/image-20221221193550502.png)
 
 
 
@@ -836,7 +836,7 @@ S|T
 * 集合：一批数据，去重
 * 字典：一批数据，根据key检索value
 
-![五种类型比较](D:\Typora\picture\image-20221222000148063.png)
+![五种类型比较](python/image-20221222000148063.png)
 
 
 

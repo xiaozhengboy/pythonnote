@@ -1,18 +1,18 @@
+[toc]
 
 
 
 
 
+# 一、python基础
 
-# python基础
+author：李政震
 
-author：小政
-
-
-
+==起点低、当下净、回头脏、平常道==
 
 
-## 1 前言
+
+## 1 概念
 
 python：
 
@@ -30,21 +30,50 @@ python：
 
 
 
-## 2 安装
+计算机技术的演进：
+	1946-1981	计算机系统结构时代（35年）	计算能力问题
+	1981-2008	网络和视窗时代（27年）	交互问题
+	2008		（安卓诞生）	
+	2008-2016	复杂信息系统时代（8年）	数据问题
+	2016		（人机大战  柯洁）		人类的问题
+	2016-		人工智能时代
+
+python语言的特点：
+	  语法简洁		  生态高产
+	C代码量的10%	13万第三方库
+	强制的可读性	快速增长的计算生态
+	较少的底层语法元素	避免重复造轮子
+	多种编程方式	开房共享
+	支持中文字符	跨操作系统平台
+
+
+
+如何看待python：
+	人生苦短，我学python
+	
+
+机器语言：	二进制，二进制代码指令	cpu
+汇编语言：	二进制代码直接对应助记符	cpu型号有关，程序不通用，需要汇编器转换
+高级语言：	更接近自然语言		与CPU型号无关，编译后运行
+超级语言：粘性整合已有程序，具备庞大计算生态
+
+
+
+## 2 python安装
 
 地址：[Welcome to Python.org](https://www.python.org/)
 
-![image-20221220153607962](python/image-20221220153607962.png)
+![image-20221220153607962](D:\Typora\picture\image-20221220153607962.png)
 
-![image-20221220153733291](python/image-20221220153733291.png)
+![image-20221220153733291](D:\Typora\picture\image-20221220153733291.png)
 
-![image-20221220153757747](python/image-20221220153757747.png)
+![image-20221220153757747](D:\Typora\picture\image-20221220153757747.png)
 
-![image-20221220153829882](python/image-20221220153829882.png)
+![image-20221220153829882](D:\Typora\picture\image-20221220153829882.png)
 
-![image-20221220153909698](python/image-20221220153909698.png)
+![image-20221220153909698](D:\Typora\picture\image-20221220153909698.png)
 
-![image-20221220153924098](python/image-20221220153924098.png)
+![image-20221220153924098](D:\Typora\picture\image-20221220153924098.png)
 
 验证：cmd   
 
@@ -153,6 +182,10 @@ Chinese（第二个中文版）
 
 变量的名称  = 变量的值
 
+```txt
+ 命名规则： 大小写字母 数字 下划线 汉字
+（大小写敏感 首字符不能是数字、不能与保留字相同）
+```
 
 
 ### 6.4 标识符
@@ -170,6 +203,17 @@ Chinese（第二个中文版）
 1. 见名知意
 2. 下划线命名法
 3. 英文字母全小写
+
+
+
+保留字：（33个）
+	and	elif	import	raise	global
+	as	else	in	return	nonlocal
+	assert	except	is	try	True
+	break	finally	lambda	while	False
+	class	for	not	with	None
+	continue	from	or	yield		
+	def	if	pass	del	
 
 
 
@@ -286,7 +330,7 @@ sample(seq,k) # 从列表seq中，随机取k个。不会修改原有序列
 
 ## 7 数据类型
 
-![image-20221220233302667](python/image-20221220233302667.png)
+![image-20221220233302667](D:\Typora\picture\image-20221220233302667.png)
 
 ### 7.0 数据类型知识
 
@@ -320,7 +364,7 @@ oct(x)   # 8
 >
 > 浮点数转整数会丢失精度
 
-### 7.1数值型
+### 7.1 数值型
 
 
 
@@ -824,7 +868,7 @@ S^T
 S|T
 ```
 
-![集合间运算](python/image-20221221193550502.png)
+![集合间运算](D:\Typora\picture\image-20221221193550502.png)
 
 
 
@@ -836,11 +880,18 @@ S|T
 * 集合：一批数据，去重
 * 字典：一批数据，根据key检索value
 
-![五种类型比较](python/image-20221222000148063.png)
+![五种类型比较](D:\Typora\picture\image-20221222000148063.png)
 
 
 
 ### 7.9 推导式
+
+列表推导式总共以下有两种形式：
+
+1. [exp1 for x in data if condition]
+2. [exp1 if condition else exp2 for x in data]
+
+此处if…else主要起赋值作用。
 
 ```python
 # 列表推导式
@@ -1001,7 +1052,7 @@ def 函数名(参数列表):
 >
 > ```python
 > def demo():
->  return 1,'xiao',True
+> return 1,'xiao',True
 > 
 > x,y,z = demo()
 > ```
@@ -1211,7 +1262,7 @@ filter(function,sequence)
 
 > 过滤
 >
-> 序列或支持迭代的容器火迭代器sequence中的每个元素都进行function的筛选，返回True的元素
+> 序列或支持迭代的容器迭代器sequence中的每个元素都进行function的筛选，返回True的元素
 
 
 
@@ -1529,11 +1580,11 @@ assert 逻辑表达式, data
 
 > ```python
 > try:
->  s = int(input("请输入你的年龄："))
->  assert s > 0, "输入的年龄大于0"
->  print(s)
+> s = int(input("请输入你的年龄："))
+> assert s > 0, "输入的年龄大于0"
+> print(s)
 > except Exception as result:
->  print('捕捉到的异常：', result)
+> print('捕捉到的异常：', result)
 > ```
 
 
@@ -1966,10 +2017,10 @@ class 类名:
 > ```python
 > class Car:
 > def move(self):
->   print("车在奔跑")
+> print("车在奔跑")
 > 
 > def toot(self):
->   print("车在鸣笛")
+> print("车在鸣笛")
 > 
 > 
 > jeep = Car()
@@ -2093,15 +2144,15 @@ self：也就是this指针。
   >
   > ```python
   > class Demo:
-  >  def __init__(self):
-  >      self.name = '小政'
-  >      self.__age = 22  # 私有属性
+  > def __init__(self):
+  >   self.name = '小政'
+  >   self.__age = 22  # 私有属性
   > 
-  >  def __str__(self):
-  >      return f'{self.name}今年{self.__age}岁'  # 内部可以访问
+  > def __str__(self):
+  >   return f'{self.name}今年{self.__age}岁'  # 内部可以访问
   > 
-  >  def __provid(self):   # 私有方法
-  >      print('我是私有的，你访问不到我')
+  > def __provid(self):   # 私有方法
+  >   print('我是私有的，你访问不到我')
   > 
   > 
   > demo = Demo()
@@ -2143,8 +2194,6 @@ print(dog)
 ```
 
 > 必须要返回一个字符串
-
-
 
 
 
@@ -2363,19 +2412,19 @@ class 子类名(父类名1,父类名2...):
 >
 > ```python
 > class Father_one:
->  def d1(self):
->      print('Father_one------d1')
->  def d2(self):
->      print('Father_one------d2')
+> def d1(self):
+>   print('Father_one------d1')
+> def d2(self):
+>   print('Father_one------d2')
 > 
 > class Father_two:
->  def d1(self):
->      print('Father_two------d1')
->  def d2(self):
->      print('Father_two------d2')
+> def d1(self):
+>   print('Father_two------d1')
+> def d2(self):
+>   print('Father_two------d2')
 > 
 > class Son(Father_one, Father_two):  # one在前，用他
->  pass
+> pass
 > 
 > son = Son()
 > son.d1()
@@ -2598,9 +2647,9 @@ def 静态方法名():
 >
 > ```python
 > class Test:
->  @staticmethod        # 修饰器
->  def happy():        # 不需要参数
->      print('今天你微笑了吗？')
+> @staticmethod        # 修饰器
+> def happy():        # 不需要参数
+>   print('今天你微笑了吗？')
 > 
 > Test.happy()  # 类名.静态方法
 > ```
@@ -2699,7 +2748,7 @@ print(test2)
 
 
 
-# pygame
+# 二、pygame
 
 
 
@@ -2762,5 +2811,2650 @@ while True:
 
 
 
+# 三、数据可视化
 
+## 1 概述
+
+## 2 numpy
+
+* Numpy是使用python进行数组计算的软件包
+
+### 2.1 数据类型
+
+### 2.2 创建数组
+
+```python
+import numpy as np
+
+# array()
+a = np.array([1, 2, 3])  # 列表->数组
+b = np.array((1, 2, 3))  # 元组->数组
+c = np.array(([1, 2, 3], [4, 5, 6]))  # 嵌套列表->数组
+# d = np.array(([1,2,3],[4,5]))    # 不规则的->数组
+
+# zeros()
+e = np.zeros((2, 3))  # 2行3列   浮点型
+f = np.zeros((2, 3), dtype=int)  # 行数 列数
+g = np.zeros((3, 3, 4))  # 三维数组    (层数 行数 列数)
+
+# ones()
+l = np.ones((2,3),dtype=int)
+
+# arange()
+h = np.arange(5)  # [0,5)
+i = np.arange(-2, 2, dtype=float)  # [-2,2)
+
+# linspace(a,b,c)
+j = np.linspace(1, 5, 6)  # (第一个元素, 最后一个元素, 个数)   间隔(b-a/c-1)
+
+# indices()
+k = np.indices((2, 6))    # 2*6
+```
+
+> range和arange的区别：
+>
+> * range是不能以小数为步长
+
+### 2.3 数组的形状
+
+```python
+import numpy as np
+
+a = np.arange(12)
+
+print(a.shape)  # 查看数组形状
+
+a.shape = (3, 4)  # 改变数组形状
+print(a)
+
+c = a.reshape((6, -1))  # 改变数组形状，并返回新数组。   -1是自动计算
+print(c)
+
+a.resize((4, 3))  # 改变数组形状
+print(a)
+a.resize((4, 5), refcheck=False)  # 可以改变元素  多的用0补
+print(a)
+
+---------------------------------------------------
+E:\software\anaconda3\python.exe E:\pythonProject\numpy\two.py 
+(12,)
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+[[ 0  1]
+ [ 2  3]
+ [ 4  5]
+ [ 6  7]
+ [ 8  9]
+ [10 11]]
+[[ 0  1  2]
+ [ 3  4  5]
+ [ 6  7  8]
+ [ 9 10 11]]
+[[ 0  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11  0  0  0]
+ [ 0  0  0  0  0]]
+
+进程已结束,退出代码0
+
+```
+
+### 2.4 索引、切片、迭代
+
+### 2.5 数组运算
+
+```python
+# 数组与常量
+import numpy as np
+
+a = np.arange(12)
+a + 2
+a - 2
+a * 2
+a / 2
+a ** 2
+a // 2
+a < 2.5     # [ True  True  True False False False False False False False False False]
+```
+
+```python
+# 矩阵运算
+import numpy as np
+
+a = np.array([[1, 2], [4, 5]])
+b = np.array([[2, 3], [5, 6]])
+
+a + b   # 矩阵加法
+a - b   # 矩阵减法
+a * b   # 元素乘法
+a @ b   # 矩阵乘法
+a.dot(b) # 矩阵乘法
+a.T     # 矩阵转置
+```
+
+```python
+# 赋值运算法
+a += 2
+a *= 2
+```
+
+```python
+a.min()   # 最小值
+a.max()   # 最大值
+a.sun()   # 所有元素求和
+
+a.max(axis=0)  # 返回最大值所在行
+a.max(axis=1)  # 返回每一行最大值
+```
+
+
+
+## 3 pandas
+
+[[第三章\]_pandas_理论.pdf](file:///E:/河南工业大学/7. 科学计算库综合实践/[第三章]_pandas_理论.pdf)
+
+### 3.1 环境安装
+
+> 安装pandas需要的基础环境是Python
+
+```Linux
+pip install pandas
+
+>>> import pandas
+>>> pandas.__version__    # 查看版本
+'1.1.5'
+
+
+pip list   # 查看是否有
+conda list   # 查看是否有
+```
+
+### 3.2 读写文件
+
+#### 3.2.1 文本
+
+```python
+# 读文本文件
+pandas.read_table(filepath_or_buffer, sep=’\t’, header=’infer’, names=None, index_col=None,dtype=None, engine=None, nrows=None)
+```
+
+> ![image-20230312183100185](D:\Typora\picture\image-20230312183100185.png)
+
+#### 3.2.2 CSV
+
+```python
+# 读CSV文件
+pandas.read_csv(filepath_or_buffer, sep=’，’, header=’infer’, names=None, index_col=None,dtype=None, engine=None, nrows=None)
+```
+
+> ![image-20230312184451684](D:\Typora\picture\image-20230312184451684.png)
+
+```python
+# 写CSV文件
+DataFrame.to_csv(path_or_buf = None, sep = ’,’, na_rep,columns=None,header=True,index=True,index_label=None, mode=’w’, encoding=None)
+```
+
+> path_or_buf：文件路径
+>
+> index：显示索引（True）
+>
+> sep：分隔符。默认“.”
+
+#### 3.2.3 Excel
+
+```python
+# 读Excel文件
+pandas.read_excel(io, sheetname, header=0, index_col=None, names=None, dtype)
+```
+
+> ![image-20230312185207293](D:\Typora\picture\image-20230312185207293.png)
+
+```python
+# 写Excel文件
+DataFrame.to_excel(excel_writer=None, sheetname=None, na_rep=”,header=True, index=True, index_label=None, mode=’w’,encoding=None)
+```
+
+> excel_writer：文件路径
+>
+> sheet_name：工作表名称。默认“Sheet1”
+>
+> na_rep：缺失数据
+>
+> index：是否写行索引。默认True
+
+#### 3.2.4 HTML
+
+```python
+# 读HTML表格数据
+pandas.read_html(io='路径名称',header='指定行列标题所在行',index_col='指定行列标题所在列',attrs='表格的属性值')
+```
+
+#### 3.2.5 数据库
+
+```python
+# 读写数据库
+read_sql_table()    # 读取整张表——>DF
+read_sql_query()    # SQL的结果——>DF
+read_sql()   # 既可以读表，也可以读SQL
+to_sql()   # 将数据写入SQL数据库
+```
+
+> 连接MySQL数据库，使用mysqlconnertor驱动
+>
+> ```Linux
+> pip install mysql-connector
+> ```
+
+### 3.3 pandas基础
+
+* 数据结构
+
+  > **序列（Series）**	1维	一维数组，大小==不可变==，数据==可变==，==同种==数据类型元素
+  >
+  > **数据帧（DataFrame）**	2维	二维数组，大小==可变==，数据==可变==，每列可以是==不同==的数据类型
+  >
+  > **面板（Panel）**	3维	三维数组，大小==可变==，数据==可变==。
+
+#### 3.3.1 Series
+
+Series是一维标签数组，能够容纳任何类型的数据（整数，字符串，浮点数，python对象等
+
+```python
+pandas.Series(data,index,dtype,copy)
+```
+
+> | 编号 | 参数    | 说明                                                  |
+> | ---- | ------- | ----------------------------------------------------- |
+> | 1    | `data`  | 传入的数据。支持多种数据类型，                        |
+> | 2    | `index` | 索引。必须是唯一值，且与`data`的长度相同。默认0-N整数 |
+> | 3    | `dtype` | 数据类型                                              |
+> | 4    | `copy`  | 是否复制数据。默认False                               |
+
+```python
+import pandas as pd
+
+# 增
+s = pd.Series([1, 2, 3, 4, 5])
+s = pd.Series([1, 2, 3, 4, 5], index=['a', 'b', 'c', 'd', 'e'])
+dic = {'one': 1, 'two': 2, 'three': [3, 4]}
+s = pd.Series(dic)
+s = pd.Series(5,index=[0,1,2,3])
+
+
+# 查
+print(s.index)  # 索引
+print(s.values)  # 值
+print(s['one'])  # 访问列名
+print(s[:3])    # 切片
+# print(s['five'])     # 访问不存在的索引会报错
+
+s * 2
+print(s)
+```
+
+> | 属性和方法 | 描述                          |
+> | ---------- | ----------------------------- |
+> | axes       | 返回行轴标签列表              |
+> | dtype      | 返回对象的dtype               |
+> | empty      | 如果series为空,则返回True     |
+> | ndim       | 根据定义1返回基础数据的维度数 |
+> | size       | 返回基础数据中的元素数量      |
+> | values     | 将该序列作为ndarray返回       |
+> | head()     | 返回前n行                     |
+> | tall()     | 返回最后n行                   |
+
+#### 3.3.2 DataFrame
+
+DataFrame 是一个表格型的数据结构，它含有一组有序的列，每列可以是不同的值类型（数值 、字符串、布尔型值）
+
+DataFrame 既有行索引也有列索引，它可以被看做由 Series 组成的字典（共同用一个索引）
+
+![image-20230312222454674](D:\Typora\picture\image-20230312222454674.png)
+
+```python
+pandas.DataFrame( data, index, columns, dtype, copy)
+```
+
+> | 编号 | 参数    | 说明               |
+> | ---- | ------- | ------------------ |
+> | 1    | data    | 数据采用各种形式。 |
+> | 2    | index   | 行标签             |
+> | 3    | columns | 列标签             |
+> | 4    | dtype   | 每类的数据类型     |
+> | 5    | copy    | False复制          |
+
+```python
+import pandas as pd
+
+# 创建
+p = pd.DataFrame()  # 空的
+
+data = [1, 2, 3, 4, 5]  # 列表创建
+df = pd.DataFrame(data)
+   0
+0  1
+1  2
+2  3
+3  4
+4  5
+
+
+data = [['one', 1], ['two', 2], ['three', 3]]  # ndarrays/lists创建
+df1 = pd.DataFrame(data, columns=['name', 'age'], dtype=float)
+    name  age
+0    one  1.0
+1    two  2.0
+2  three  3.0
+
+
+data = {'Name': ['Tom', 'Jack', 'Aaron', 'Abel'], 'Age': [18, 24, 29, 42]}
+df2 = pd.DataFrame(data)
+    Name  Age
+0    Tom   18
+1   Jack   24
+2  Aaron   29
+3   Abel   42
+
+
+data = {'Name': ['Tom', 'Jack', 'Aaron', 'Abel'], 'Age': [18, 24, 29, 42]}
+df3 = pd.DataFrame(data, index=['r1', 'r2', 'r3', 'r4'])
+     Name  Age
+r1    Tom   18
+r2   Jack   24
+r3  Aaron   29
+r4   Abel   42
+
+
+data = [{'a': 11, 'b': 12}, {'a': 15, 'b': 10, 'c': 20}]
+df4 = pd.DataFrame(data)
+    a   b     c
+0  11  12   NaN
+1  15  10  20.0
+
+
+data = [{'a': 11, 'b': 12}, {'a': 15, 'b': 10, 'c': 20}]
+df5 = pd.DataFrame(data, index=['first', 'second'])
+         a   b     c
+first   11  12   NaN
+second  15  10  20.0
+
+
+data = [{'a': 11, 'b': 12}, {'a': 15, 'b': 10, 'c': 20}]
+df6 = pd.DataFrame(data, index=['one', 'two'], columns=['a', 'b'])
+df7 = pd.DataFrame(data, index=['one', 'two'], columns=['a', 'd'])
+     a   b
+one  11  12
+two  15  10
+      a   d
+one  11 NaN
+two  15 NaN
+
+
+data = {'one': pd.Series([1, 2, 3], index=['a', 'b', 'c']), 'two': pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])}
+df8 = pd.DataFrame(data)
+   one  two
+a  1.0    1
+b  2.0    2
+c  3.0    3
+d  NaN    4
+
+df8.iloc[2]   # 看第2+1行
+df8[2:4]  # 切片
+
+```
+
+```python
+# 删除
+def df['列名columns']
+df.pop('列名columns')
+```
+
+```python
+# 添加
+df.['新列名columns'] = pd.Series([10, 20, 30],index=['a', 'b', 'c'])
+df['新列名columns'] = df['第一列columns'] + df['第二列columns']
+
+
+df = pd.DataFrame([[11, 12], [13, 14]], columns = ['a','b'])
+df2 = pd.DataFrame([[15, 16], [17, 18]], columns = ['a','b'])
+df = df.append(df2)
+   a  b
+0 11 12
+1 13 14
+0 15 16
+1 17 18
+
+
+df = df.drop(0)  # 删除0的行
+print (df)
+   a b
+1 13 14
+1 17 18
+```
+
+```python
+df.T   # 转置
+df.axes   # 轴 返回行轴标签和列轴标签的列表。
+df.dtype  # 返回每列的数据类型
+df.empty  # 返回布尔值，表示对象是否为空; True表示该对象为空。
+df.ndim  # 返回对象的维数。根据定义，DataFrame是一个2D对象。
+df.shape  # 返回表示DataFrame维度的元组。元组（a，b），其中a代表行数， b 代表列数。
+df.size  # 返回DataFrame中元素的数量
+df.values  # 作为 NDarray 返回DataFrame中的实际数据 
+df.head(2)   # 返回前2行。默认5
+df.tail(2)  # 范湖后2行。默认5
+df.sample(n)  # 查看n个样本。随机。默认1
+```
+
+#### 3.3.3 索引操作及高级索引
+
+```python
+# 重置索引
+DataFrame.reindex(label=None,   
+                 index=None,   # 用作索引的新序列
+                 coluns=None,  
+                 axis=None,
+                 method=None,  # 插值填充方式 
+                               # （ffill/pad:向前填充值   bfill/backfill:后向填充值  nearest:从最近的索引值填充）
+                 copy=True, 
+                 level=None,
+                 fill_value=nan,   # 引入缺失值时使用的替代值
+                 limit=None,  # 向前或 向后填充时的最大填充量
+                 tolerance=None)
+```
+
+```python
+# Series 的索引操作
+import pandas as pd
+
+ser = pd.Series([1, 2, 3, 4, 5], index=['a', 'b', 'c', 'd', 'e'])
+print(ser['c'])  # index名
+print(ser[1])  # 下标
+print(ser[2:4])  # 下标切片
+print(ser['b':'d'])  # index切片
+print(ser[[1, 0, 4]])  # 取下标1,0,4的数据集
+print(ser[['a', 'b', 'd']])  # 取索引abd的数据集
+# 布尔索引
+ser_bool = ser > 3
+print(ser_bool)   # 创建布尔型的series类型
+print(ser[ser_bool])  # 获取True的数据
+```
+
+```python
+# DataFrame 的索引操作
+import numpy as np
+import pandas as pd
+
+df = pd.DataFrame(np.arange(12).reshape(3, 4), columns=['a', 'b', 'c', 'd'])
+print(df['b'])  # 获取b列
+print(df[['b', 'd']])  # 获取bd列
+print(df[:2])  # 获取前两行数据
+print(df[:3][['b', 'd']])  # 获取前两行的bd列
+# 高级
+print(df.loc[1:2, ['c', 'a']])   # 基于标签索引（切片包含结尾）
+print(df.iloc[1:3, [2, 0]])  # 基于位置索引（切片不包含结尾）
+```
+
+#### 3.3.4 算术运算与数据对齐
+
+```python
+import numpy as np
+import pandas as pd
+
+ser1 = pd.Series(range(10, 13), index=range(3))
+ser2 = pd.Series(range(20, 25), index=range(5))
+
+# 加法运算  （先对齐，对齐做加法，没对齐NAN填充）
+print(ser1 + ser2)   # 没对齐NAN填充
+print(ser1.add(ser2, fill_value=0))   # 填充0，然后相加
+```
+
+#### 3.3.5 数据排序
+
+```python
+# 按索引排序
+sort_index(axis=0,             # 轴索引（排序的方向），0表示index按行（默认按行），1表示columns按列
+          level=None,          # 若不为None，则对指定索引级别的值进行排序
+          ascending=True,      # 是否升序排列，默认True，（升序）
+          inplace=False,       # 默认False，对数据表进行排序，不创建新的实例
+          kind='quicksort',    # 选择排序算法
+          na_position='last',
+          sort_remaining=True)
+```
+
+```python
+# 按值排序
+sort_values(by,   # 表示排序的列。
+            axis=0,              # 轴索引（排序的方向），0表示index按行（默认按行），1表示columns按列
+          	level=None,          # 若不为None，则对指定索引级别的值进行排序
+          	ascending=True,      # 是否升序排列，默认True，（升序）
+          	inplace=False,       # 默认False，对数据表进行排序，不创建新的实例
+         	kind='quicksort',    # 选择排序算法
+         	na_position='last')  # first：NAN放开头  last：NAN放末尾（默认） 
+```
+
+#### 3.3.6 统计计算与描述
+
+| 函数名         | 说明                              |
+| -------------- | --------------------------------- |
+| sum            | 和                                |
+| mean           | 平均值                            |
+| median         | 中位数                            |
+| max、min       | 最大值、最小值                    |
+| idxmax、idxmin | 最大索引值、最小索引值            |
+| count          | 非NaN个数                         |
+| head           | 获取前N个值                       |
+| var            | 样本值的方差                      |
+| std            | 标准差                            |
+| skew           | 偏度（三阶矩）                    |
+| kurt           | 峰度（四阶矩）                    |
+| cunsum         | 累积和                            |
+| cummin、cummax | 累积最小值、累积最大值            |
+| cumprod        | 累计积                            |
+| describe       | 对series和dataframe列计算汇总统计 |
+
+
+
+```python
+
+```
+
+
+
+
+
+## 4 matplotlib
+
+[快速入门指南 — Matplotlib 3.7.1 文档](https://matplotlib.org/stable/tutorials/introductory/quick_start.html)
+
+df['species']
+
+![../../_images/anatomy.png](D:\Typora\picture\anatomy.png)
+
+
+
+### 4.1 基本概述
+
+```python
+import numpy as np
+from matplotlib import pyplot as plt
+from pylab import mpl
+
+# 消除错误
+import warnings
+warnings.filterwarnings('ignore')
+
+# 添加数据
+X = np.arange(0,26,2)
+Y = np.array([16,18,19,20,24,26,30,28,27,22,18,17,16])
+
+# 解决乱码
+plt.rcParams['font.sans-serif'] = ['SimHei']   # 显示中文
+plt.rcParams['axes.unicode_minus'] = 'False'   # 正常显示正负号
+
+# 设置画布大小
+plt.figure(figsize=(10,4),      # figsize调整长宽，
+           dpi=300,   # 清晰度
+           facecolor='gray')  # 画布背景色
+
+# 设置标题
+plt.xlabel("时间")  # x的标题
+plt.ylabel("温度")  # y的标题
+plt.title("时间和温度图")   # 图的标题
+
+# 设置刻度
+plt.xticks(label=X，rotation=45)   # rotation旋转角度
+plt.yticks(Y)
+
+# 设置范围
+plt.xlim(0,30)
+plt.ylim(0,40)
+
+# 绘制网格 
+plt.grid(alpha = 0.3)     # alpha：网格透明度
+
+# 保存图片
+# plt.savefig("test2202.pdf")    # 保存路径
+
+# 生成图形
+_ = plt.plot(X,Y,label="图例")    # 生成折线图
+
+# 设置图例
+plt.legend(loc = "center")
+
+# 关闭坐标轴
+plt.axis('off')
+
+# 图形展示
+plt.show()     # 展示图形
+```
+
+> 图例：
+>
+> ```txt
+> 	    ===============   =============
+>      Location String   Location Code
+>      ===============   =============
+>      'best'            0
+>      'upper right'     1
+>      'upper left'      2
+>      'lower left'      3
+>      'lower right'     4
+>      'right'           5
+>      'center left'     6
+>      'center right'    7
+>      'lower center'    8
+>      'upper center'    9
+>      'center'          10
+>      ===============   =============
+> ```
+
+### 4.2 颜色、样式、标记
+
+```python
+# 传入数据
+a = np.arange(-10,10)
+b = a*0.5
+
+plt.figure(figsize=(10,5),dpi=300)
+
+
+# 颜色color： 红色r  蓝色B  绿色g  白色w  青色c  品红m  黄色y  黑色k
+# 样式linestyle： 直线-  虚线--  ：   点划线-.
+# 标记marker： 实心圆圈o  菱形D  正方形s  六边形h H  八边形8  点.  三角形 ^ < > v   星号*  加号+  
+# 粗细markersize：
+    
+    
+# 绘图
+# plt.plot(a,b,color='r',linestyle='--',linewidth=5,alpha=0.5)
+plt.plot(a,b,'r-o')      # 红色 实线 -
+plt.plot(a,b-1,'g--D')   # 绿色  虚线 --
+plt.plot(a,b-2,'b-.h')   # 蓝色   点划线 -.
+plt.plot(a,b-3,'b:H')   # 白色   点虚线:
+# cmyk
+plt.plot(a,b-4,'c8-')   # 青色    
+plt.plot(a,b-5,"mp-")   # 洋红
+plt.plot(a,b-6,'y+-')   # 黄色
+plt.plot(a,b-7,'k.-')   # 黑色
+
+plt.plot(a,b+1,'ks-')   # 黑色
+plt.plot(a,b+2,'k*-')   # 黑色
+plt.plot(a,b+3,'kv-')   # 黑色
+plt.plot(a,b+4,'k^-')   # 黑色
+plt.plot(a,b+5,'k>-')   # 黑色
+plt.plot(a,b+6,'k<-')   # 黑色
+plt.show()
+```
+
+### 4.3 多子图
+
+```python
+# 多子图1
+x_one = np.arange(0,100,0.5)
+y_one = np.sin(x_one)
+
+x_two = np.arange(100,150,0.5)
+y_two = np.sin(x_two)
+
+plt.subplot(221)   # 2行2列子图1
+_ = plt.plot(x_one,y_one)
+
+plt.subplot(222)   # 2行2列子图2
+_ = plt.plot(x_two,y_two)
+
+plt.subplot(212)   # 2行1列子图2
+_ = plt.plot(x_two,y_two)
+```
+
+![image-20230303105823105](D:\Typora\picture\image-20230303105823105.png)
+
+```python
+# 多子图2
+x_one = np.arange(0,100,0.5)
+y_one = np.sin(x_one)
+
+x_two = np.arange(100,150,0.5)
+y_two = np.sin(x_two)
+
+fig,axes = plt.subplots(nrows=2,ncols=2)   # 画布对象，子图对象    nrows行数  ncols列数  sharex sharey xy  True/all  Flase/None  row   col
+axes[0,0].plot(x_one,y_one)
+axes[0,1].plot(x_two,y_two)
+axes[1,1].plot(x_two,y_two)
+fig.show()
+```
+
+```python
+# 多子图3
+x_one = np.arange(0,100,0.5)
+y_one = np.sin(x_one)
+
+fig = plt.figure()
+
+plt1 = fig.add_subplot(2,2,1)
+plt2 = fig.add_subplot(2,2,2)
+plt4 = fig.add_subplot(2,2,4)
+
+plt1.plot(x_one,y_one)
+plt1.set_xlabel("时间")
+plt1.set_ylabel("分数")
+plt1.set_title("测试图表1")
+
+plt4.plot(x_two,y_two)
+```
+
+```python
+# 图中图
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0,2*np.pi,200)
+y = np.sin(x * x)
+
+fig = plt.figure()
+left1,bottom1,widht1,hight1 = 0.1,0.1,0.8,0.8
+
+plt.rcParams['font.sans-serif'] = 'SimHei'
+plt.rcParams['axes.unicode_minus'] = False
+
+axes_1 = fig.add_axes([left1,bottom1,widht1,hight1])
+axes_1.scatter(x,y)
+axes_1.set_xlabel('x')
+axes_1.set_ylabel('y')
+axes_1.set_title("这是第一个图")
+
+# 绘制第二个子图
+left2,bottom2,widht2,hight2 = 0.6,0.6,0.3,0.3
+axes_2 = fig.add_axes([left2,bottom2,widht2,hight2])
+axes_2.plot(x,y)
+axes_2.set_xlabel('x')
+axes_2.set_ylabel('y')
+axes_2.set_title("这是第二个图")
+
+plt.show()
+```
+
+![图中图](D:\Typora\picture\image-20230303114224419.png)
+
+```python
+# 填充图
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0,1,500)
+y = np.sin(3*np.pi*x)*np.exp(-4*x)
+
+fig,ax = plt.subplots(1,1)
+ax.plot(x,y)
+plt.fill_between(x,0,y,facecolor = 'g',alpha=0.3)
+plt.show()
+```
+
+![填充图](D:\Typora\picture\image-20230303115641087.png)
+
+```python
+# 叠图
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2 * np.pi, 400)
+
+y = np.sin(x ** 2)
+
+fig = plt.figure()
+
+ax1 = fig.add_axes([0.1, 0.1, 0.5, 0.5])
+ax2 = fig.add_axes([0.2, 0.2, 0.5, 0.5])
+ax3 = fig.add_axes([0.3, 0.3, 0.5, 0.5])
+ax4 = fig.add_axes([0.4, 0.4, 0.5, 0.5])
+
+ax4.plot(x, y, 'r-')
+
+plt.show()
+```
+
+![image-20230316223033017](D:\Typora\picture\image-20230316223033017.png)
+
+```python
+# 等比例坐标
+import numpy as np
+import matplotlib.pyplot as plt
+
+X = np.linspace(0, 10, 100)
+
+fig, ax = plt.subplots()
+#线条的风格
+styles = ['-', '--', '-.', ':']
+colors = ['c', 'm', 'y', 'k']
+
+lines = []
+
+for i in range(4):
+    lines += ax.plot(X, np.sin(X - i * np.pi / 2),
+           styles[i],
+            color = colors[i]
+            #label = f'sin(x -{i} * π /2 )'  #<-重要的知识点
+           )
+
+ax.axis('equal')
+
+ax.legend(lines[:2], ['$sin(x)$', '$sin(x + \\frac{1}{2} \pi)$'],
+         loc = 'upper right',
+          frameon = False
+         )
+
+from matplotlib.legend import Legend
+leg = Legend(ax, lines[2:], ['$X_{1}^{3}$', 'Line D'],
+      loc = 'lower left',
+       frameon = False
+      )
+
+
+ax.add_artist(leg)
+
+plt.xticks(ticks = np.arange(0, 3 * np.pi, 0.5 * np.pi),
+          labels = ['0', '$\\frac{1}{2}\pi$',
+                   '$\pi$',
+                    '$\\frac{3}{2}\pi$',
+                    '$\\frac{4}{2}\pi$',
+                    '$\\frac{5}{2}\pi$'
+                   ]
+          )
+
+
+#plt.legend()
+plt.show()
+```
+
+![image-20230316222032398](D:\Typora\picture\image-20230316222032398.png)
+
+
+
+### 4.4 其他图形
+
+#### 4.4.1 条形图（bar）
+
+```python
+bar(x,    # 表示x的坐标值
+    height,  # 表示柱形的高度
+    width=0.8,  # 表示柱形的宽度，默认为0.8
+    bottom=None, # 表示柱形底部的y坐标值，默认为0
+    align='center',  # 表示柱形的对齐方式，有’center’和’edge’两个取值，
+    			     # 其中’center’表示将柱形与刻度线居中对齐,'edge’表示将柱形的左边与刻度线对齐
+    data=None,   
+    tick_label=None,
+    xerr=None,  # 若未设为None,则需要为柱形图添加水平/垂直误差棒
+    yerr=None,
+    error_kw=None,  # 表示误差棒的属性字典,字典的键对应errorbar()函数的关键字参数.
+    **kwargs)
+```
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+grade = ["人工2201","人工2202","人工2203","人工2204","人工2205"]
+people = [30,30,29,30,29]
+
+plt.bar(grade,people)
+# x: x轴数据[array]   
+# height：条形高度 [array]  
+# width：条形宽度（0.8）[float  0-1]   
+# color：条形颜色   
+# edgecolor：条形边框颜色
+plt.show()
+```
+
+```python
+# 左右形式
+import numpy as np 
+import matplotlib.pyplot as plt
+
+zhangsan = np.array((90, 55, 40, 65))
+lisi = np.array([5, 62, 54, 20])
+plt.rcParams['font.sans-serif'] = ['SimHei']
+X = np.arange(1, 5)
+
+bar_width = 0.3
+
+plt.bar(X, zhangsan, 
+        width = bar_width,
+        color = "w", edgecolor = 'k',
+       hatch = r'+', tick_label = ['语文', '数学', '英语', '物理'],
+        label = '张三的成绩'
+       )
+
+plt.bar(X + bar_width, #左右结构的关键
+        height = lisi, 
+        width = bar_width,  #默认值为0.8，特定值，需要设置
+        color = "y",  
+       hatch = r'**', tick_label = ['语文', '数学', '英语', '物理'],
+        label = '李四的成绩'
+       )
+plt.legend()
+plt.show()
+```
+
+
+
+#### 4.4.2 水平条形图（bath）
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+grade = ["人工2201","人工2202","人工2203","人工2204","人工2205"]
+people = [30,30,29,30,29]
+
+plt.barh(grade,people)
+# x: x轴数据   height：条形高度   width：条形宽度（0.8）   color：条形颜色   edgecolor：条形边框颜色
+plt.show()
+```
+
+
+
+#### 4.4.3 直方图（hist）
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+grade = ["人工2201","人工2202","人工2203","人工2204","人工2205"]
+# people = [30,30,29,30,29]
+
+plt.hist(grade)    # 统计数组里的个数
+# color：条形填充颜色
+# edgecolor：条形边框颜色
+# hatch：填充物   (*** +++ /// \\\ ...)
+# density = 1  是否是密度函数，概率
+plt.show()
+```
+
+
+
+#### 4.4.4 饼图（pie）
+
+```python
+matplotlib.pyplot.pie(x,    # 浮点型数组，表示每个扇形的面积。
+                      explode=None,  # 数组，表示各个扇形之间的间隔，默认值为0。
+                      labels=None,   # 列表，各个扇形的标签，默认值为 None。
+                      colors=None,   # 数组，表示各个扇形的颜色，默认值为 None。
+                      autopct=None,  # 设置饼图内各个扇形百分比显示格式，
+                      				      # %d%% 整数百分比，        %0.1f 一位小数，
+                                          # %0.1f%% 一位小数百分比， %0.2f%% 两位小数百分比。
+                      pctdistance=0.6, # 类似于 labeldistance，指定 autopct 的位置刻度，默认值为 0.6。
+                      shadow=False,  # 布尔值 True 或 False，设置饼图的阴影，默认为 False，不设置阴影。
+                      labeldistance=1.1,  # 标签标记的绘制位置，相对于半径的比例，默认值为 1.1，如 <1则绘制在饼图内侧。
+                      startangle=0,  # 起始绘制饼图的角度，默认为从 x 轴正方向逆时针画起，如设定=90则从y轴正方向画起。
+                      radius=1,   # 设置饼图的半径，默认为 1。
+                      counterclock=True, # 布尔值，设置指针方向，默认为 True，即逆时针，False 为顺时针。
+                      wedgeprops=None, # 字典类型，默认值 None。参数字典传递给 wedge 对象用来画一个饼图。例如：		                                          wedgeprops={'linewidth':5} 设置wedge 线宽为5。 
+                      textprops=None,   # 字典类型，默认值为：None。传递给 text 对象的字典参数，用于设置标签（labels）                                           和比例文字的格式。
+                      center=0, 0,  # 浮点类型的列表，默认值：(0,0)。用于设置图标中心位置。
+                      frame=False,  # 布尔类型，默认值：False。如果是 True，绘制带有表的轴框架。
+                      rotatelabels=False,  # 布尔类型，默认为 False。如果为 True，旋转每个 label 到指定的角度。
+                      *,
+                      normalize=None, 
+                      data=None)
+```
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+grade = ["人工2201","人工2202","人工2203","人工2204","人工2205"]
+people = [30,30,29,30,29]
+
+plt.pie(people,explode=(0.1,0,0,0,0),labels=grade,autopct =' %1.2f%%')
+# x；数据[array]
+# explode: 指定项离饼图圆心为n个半径（None）[array]
+# labels：每一项的名称（None）[array]
+# color：颜色（None）[string   array]
+# autopct：指定数值（None）[string]
+# pctdistanc：每一项的比例和距离饼图圆心n个半径（0.6）
+# labeldistance：每一项的名称和距离饼图圆心n个半径（1.1）
+# radius：饼图的半径（1）
+plt.show()
+```
+
+> * [关于python：如何使用matplotlib autopct？ | 码农家园 (codenong.com)](https://www.codenong.com/6170246/)
+>
+> * [Python可视化29|matplotlib-饼图（pie） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/203527939)
+
+#### 4.4.5 光谱图（speegram）
+
+#### 4.4.6 堆积区域图（stackplot）
+
+#### 4.4.7 散点图（scatter）
+
+> mark：
+>
+> * .
+> * *
+> * ,
+> * d
+> * D
+> * _
+> * +
+> * <
+> * `>`
+> * ^
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+X = np.arange(1,20)
+Y = X * X
+plt.scatter(X, Y, marker = 'D', s = 200)
+plt.plot(X,Y, 'r-.')
+plt.show()
+```
+
+![image-20230316224440260](D:\Typora\picture\image-20230316224440260.png)
+
+
+
+#### 4.4.8 折线图（plot）
+
+#### 4.4.9 箱型图（boxplot）
+
+
+
+
+
+## 5 Seaborn
+
+
+
+#### 热力图
+
+函数名称：sns.heatmap
+
+函数作用：绘制矩阵颜色图。
+
+函数参数：
+
+- data：必选参数，rectangular dataset，可以转换为ndarray类型的数据集，如果提供一个 pandas.DataFrame，那么索引/列信息将被用于标记列和行。
+- vmin, vmax：可选参数，浮点型，颜色映射的锚定值，否则它们将从数据和其他关键字参数中推断出来。
+- cmap：可选参数，matplotlib 对象或者是列表形式的颜色，将数据值映射到颜色空间。如果未提供，则默认情况下将取决于是否设置 center。
+- center：可选参数，浮点型，绘制发散数据时将映射到颜色图的中心值。使用此参数将更改缺省的 cmap 如果没有指定的话。
+- robust：可选参数，bool型，如果为True并且 vmin 或 vmax不存在，则使用鲁棒性量化计算 colormap 范围，而不是极端值。
+- annot：可选参数，bool型或者rectangular dataset，如果为True，则在每个单元格中写入数据值。如果是与data具有相同形状的类数组，则使用它来注释热图而不是数据。请注意，DataFrames将匹配位置，而不是索引。
+- fmt：可选参数，str型，添加注释时要使用的字符串格式代码。
+- annot_kws：可选参数，dict型，关键字参数：matplotlib.axes.Axes.text 是True时。
+- linewidths：可选参数，浮点型，将分割每个单元格的线的宽度。
+- linecolor：可选参数，color型，将分割每个单元格的线的颜色。
+- cbar：可选参数，bool型，是否绘制颜色条。
+- cbar_kws：可选参数，dict 型，当cbar为True时，关键字参数传递给 matplotlib.figure.Figure.colorbar。
+- cbar_ax：可选参数，matplotlib Axes类型，用于绘制颜色条的坐标轴，否则从主轴中移出空间。
+- square：可选参数，bool型，如果是True，则将Axes方面设置为“相等”，使每个单元格都是正方形。
+- xticklabels, yticklabels：可选参数，"auto"，bool型，列表形式的字符，整数类型。如果为True，则绘制数据框架的列名。如果为False，则不绘制列名。如果是列表样式，则将这些替代标签作为xticklabels。如果是整数，则使用列名但仅绘制每个n个标签。如果是"auto"，则尝试密集地绘制不重叠的标签。
+- mask：可选参数，布尔数组或DataFrame，如果传递，则没有显示mask=True的单元格中的数据。带有缺失值的单元格将自动蒙版。
+- ax：可选参数，matplotlib Axes类型，用于绘制绘图的坐标轴，否则使用当前活动的Axes。
+- kwargs：可选参数，其他关键字参数，所有其他关键字参数都传递给matplotlib.axes.Axes.pcolormesh。
+
+函数返回：
+
+- ax：matplotlib Axes类型，具有热图的Axes对象。
+
+参考示例：
+
+```python
+import seaborn as sns;
+import numpy as np
+uniform_data = np.random.rand(10, 12)
+ax = sns.heatmap(uniform_data)
+
+sns.set_theme()
+flights = sns.load_dataset("flights")
+flights = flights.pivot("month", "year", "passengers")
+ax = sns.heatmap(flights, annot=True, fmt="d")
+
+corr = np.corrcoef(np.random.randn(10, 200))
+mask = np.zeros_like(corr)
+mask[np.triu_indices_from(mask)] = True
+with sns.axes_style("white"):
+    f, ax = plt.subplots(figsize=(7, 5))
+    ax = sns.heatmap(corr, mask=mask, vmax=.3, square=True)
+```
+
+
+
+# 四、OpenCV计算机视觉
+
+## 1 OpenCV起步
+
+>  OpenCV：开源计算机视觉库（Open Source Computer Vision Library）
+
+* 1999年：Inter公司的Gary Bradsky创建
+* 2000年发布第一个版本
+* 2006年10月    OpenCV 1.0
+* 2009年9月      OpenCV 2.0
+* 2015年6月      OpenCV 3.0，不向后兼容2.x
+* 2018年            OpenCV 4.0
+* 2020年10月    OpenCV 4.5.0
+
+### 1.1 配置开发环境
+
+1. 安装python
+
+   > ([Welcome to Python.org](https://www.python.org/))
+
+2. 安装numpy
+
+   ```linux
+   pip install numpy
+   ```
+
+3. 安装OpenCV-Python
+
+   ```linux
+   pip install opencv-python     # 只安装OpenCV的主版块
+   pip install opencv-contrib-python    # 同时安装OpenCV的主模块和贡献模块
+   ```
+
+4. 安装visual studio code
+
+5. 安装PyCharm
+
+   > [PyCharm: the Python IDE for Professional Developers by JetBrains](https://www.jetbrains.com/pycharm/)
+
+
+
+## 2 图像处理基础
+
+```python
+import cv2
+
+cv2.imread("图片的地址",图像读取格式标志)   # 读
+cv2.imwrite("图片的地址", 图像数组)   # 写
+cv2.imshow("窗口的名称", 图像数组)   # 显示
+cv2.waitKey("等待的毫秒数")   # 等待
+cv2.distoryWindow(图像数组)   # 关闭窗口
+--------------------------------------------------
+import cv2
+
+vc = cv2.VideoCaptrue("视频的地址")   # 生成对象
+success, frame = cv2.read()   # 读一帧
+vw = cv2.VideoWrite("保存的视频名", 视频解码格式, 帧率, 大小)   # 生成对象
+vw.wirte(frame)   # 写
+vc.release()   # 关闭
+---------------------------------------------------
+import cv2
+
+b,g,r = cv2.split(图像)   # 拆分
+img = cv2.merge([b,g,r])   # 合并
+```
+
+
+
+### 2.1 图像
+
+#### 2.1.1 读   cv2.imread()
+
+```python
+import cv2
+
+img = cv2.imread('..\picture\demo.png')  # 读图像
+print(type(cv2))  # 数据类型
+print(img)   # 图像数组
+print(img.shape)  # 数组形状   (850, 797, 3)
+print(img.dtype)  # 数组元素的数据类型   
+print(img.size)   # 数组元素个数
+```
+
+> 彩色图像的数组是一个三维数组  ==（高度，宽度，通道数）==
+>
+> 图像的分辨率是：高度 X 宽度
+>
+> 每个数组元素为一个像素的==BGR==通道的颜色值   
+>
+> 颜色值取值范围：[0, 255]
+
+> ==**img = cv2.imread(fliename, flag)**==
+>
+> fliename：图像文件名
+>
+> flag：图像读取格式标志
+
+#### 2.1.2 写   cv2.imwrite()
+
+```python
+import numpy as np
+import cv2
+
+img = np.ones((6, 6), dtype=np.uint8)
+cv2.imwrite('..\picture\mypic2-1.jpg', img)    # cv2.imwrite(文件名,数组)
+```
+
+#### 2.1.3 显示   cv2.imshow()
+
+```python
+import numpy as np
+import cv2
+
+img = cv2.imread('..\picture\demo.png')
+cv2.imshow('demo', img)
+
+# 解决显示后立即关闭
+key = 0
+while key != 27:      # 按Esc键
+    key = cv2.waitKey()   # 等待按键
+cv2.destoryWindow('demo')
+```
+
+> ```python
+> rv = cv2.waitKey([delay])
+> ```
+>
+> * rv：保存函数的返回值。【键没按下，返回-1；键按下，返回键的ASCII码】
+> * delay：表示等待按键的时间。默认0。【负数或0：无限等待；正数：等待参数毫秒后结束等待，返回-1】
+
+### 2.2 视频
+
+#### 2.2.1 播放视频
+
+```python
+import cv2 as cv
+
+vc = cv.VideoCapture("../video/demo.mp4")  # 创建videocapture对象  （视频文件）
+fps = vc.get(cv.CAP_PROP_FPS)  # 读取视频帧速率
+size = (vc.get(cv.CAP_PROP_FRAME_HEIGHT), vc.get(cv.CAP_PROP_FRAME_WIDTH))  # 读取视频大小
+print("帧速率：", fps)
+print("大小", size)
+success, frame = vc.read()  # 读第一帧  
+while success:      # 循环读取帧
+    cv.imshow('myvideo', frame)    # 在窗口中显示帧图像
+    success, frame = vc.read()    # 读下一帧
+    key = cv.waitKey(25)     # 延时时间
+    if key == 27:
+        break
+vc.release()    # 关闭视频
+```
+
+> ```python
+> vc = cv2.VideoCapture()
+> vc.read()   # 获取视频的每一帧，每一帧都是一副图像
+> vc.write()  # 将帧写入视频文件
+> cv2.imshow('窗口名',图像数组)   
+> ```
+>
+> 默认是浮点数，可以换成整数
+>
+> (int(vc.get(cv.CAP_PROP_FRAME_HEIGHT)),int(vc.get(cv.CAP_PROP_FRAME_WIDTH)))
+
+#### 2.2.2 将视频写入文件
+
+```python
+import cv2 as cv
+
+vc = cv.VideoCapture("test2-6out.avi")  # 创建videocapture对象  （视频文件）
+# vc = cv.VideoCapture("../video/demo.mp4")  # 创建videocapture对象  （视频文件）
+fps = vc.get(cv.CAP_PROP_FPS)  # 读取视频帧速率
+size = (int(vc.get(cv.CAP_PROP_FRAME_HEIGHT)),int(vc.get(cv.CAP_PROP_FRAME_WIDTH)))  # 读取视频大小
+
+vw = cv.VideoWriter('test2-6out.avi', cv.VideoWriter_fourcc('X', 'V', 'I', 'D'), fps, size)
+success, frame = vc.read()
+while success:
+    vw.write(frame)
+    success, frame = vc.read()
+
+vc.release()  # 关闭视频
+```
+
+> ==cv2.VideoWriter(‘指定保存视频的文件名’, 视频解码格式, 帧速率, 大小)==
+>
+> **常用的解码器格式**
+>
+> ```python
+> cv2.VideoWriter_fourcc('P','I','M','1')   # XVID的MPEG-1编码格式（.avi）
+> cv2.VideoWriter_fourcc('M','P','4','2')   # Microsoft的MPEG-4编码格式（.avi）
+> cv2.VideoWriter_fourcc('X','V','I','D')   # XVID的MPEG-4编码格式（.avi）
+> cv2.VideoWriter_fourcc('F','L','V','1')   # XVID的MPEG-4编码格式（.flv）
+> ```
+
+#### 2.2.3 捕获摄像头视频
+
+```python
+import cv2 as cv
+vc = cv.VideoCapture(0)    # 0表示默认摄像头
+fps = 30   # 帧率
+size = (int(vc.get(cv.CAP_PROP_FRAME_HEIGHT)), int(vc.get(cv.CAP_PROP_FRAME_WIDTH)))  # 读取视频大小
+
+vm = cv.VideoWriter('../video/test2-3-1.avi',   # 设置保存视频的文件名
+                    cv.VideoWriter_fourcc('X', 'V', 'I', 'D'),    
+                    fps,
+                    size)   
+success, frame = vc.read()  
+while success:
+    vm.write(frame)
+    cv.imshow('mycarmra', frame)
+    key = cv.waitKey(0)
+    if key == 27:
+        break
+    success, frame = vc.read()
+vc.release()
+```
+
+####  2.2.4 操作灰度图像
+
+```python
+import cv2
+import numpy as np
+
+img = np.zeros((10, 10), dtype=np.uint8)
+
+n = 0
+while True:
+    cv2.imshow("操作灰度图像", img)
+    n += 20
+    img[:, :] = n    # img[行, 列]
+    print(img[1, 1])
+    print(img)
+    key = cv2.waitKey(1000)
+    if key == 27:
+        break
+```
+
+#### 2.2.5 操作彩色图像
+
+```python
+import cv2
+import numpy as np
+
+img = np.zeros((240, 320, 3), dtype=np.uint8)
+r0 = 0
+r1 = 1
+r2 = 2
+while True:
+    img[:80, :, r0] = 255
+    img[80:160, :, r1] = 255
+    img[160:, :, r2] = 255
+    cv2.imshow("彩色窗口", img)
+    key = cv2.waitKey()
+    img[:, :, :] = 0
+    t = r0
+    r0 = r1
+    r1 = r2
+    r2 = t
+    if key == 27:
+        break
+```
+
+#### 2.2.6 图像通道操作
+
+```python
+import cv2
+
+img = cv2.imread("../picture/demo.png", cv2.IMREAD_REDUCED_COLOR_2)
+cv2.imshow("test", img)
+
+# 通过数组索引拆分通道
+b = img[:, :, 0]   # 获得B通道图像
+g = img[:, :, 1]   # G
+r = img[:, :, 2]   # R
+
+# 使用cv2.split()函数拆分
+b, g, r = cv2.split(img)
+
+
+cv2.imshow("testb", b)
+cv2.imshow("testg", g)
+cv2.imshow("testr", r)
+cv2.waitKey(-1)
+
+# 合并图像通道 
+b, g, r = cv2.split(img)   #  按通道拆分图像
+rgb = cv2.merge([r, g, b])  # 合并 
+gbr = cv2.merge([g, b, r])  # 合并
+cv2.imshow('test_rgb', rgb)
+cv2.imshow('test_gbr', gbr)
+```
+
+> cv2.split()拆分效率不如数组索引
+>
+> 在处理较大图像时，优先考虑 **数组索引**
+
+### 2.3 图像运算
+
+#### 2.3.1 加法运算
+
+```python
+# 加法运算
+'''
+	    +:如果两个像素相加大于256，则按256取模    （两图像融合）
+cv2.add():如果两个像素相加大于256，则取255       （b的轮廓看a的照片）
+'''
+
+import cv2
+
+img1 = cv2.imread("../picture/demo.png", cv2.IMREAD_REDUCED_COLOR_2)
+img2 = cv2.imread("../picture/demo_one.png")
+img3 = img1 + img2          
+img4 = cv2.add(img1, img2)
+
+cv2.imshow('img1', img1)
+cv2.imshow('img2', img2)
+cv2.imshow('img3', img3)
+cv2.imshow('img4', img4)
+
+cv2.waitKey(0)
+```
+
+![加法运算](D:\Typora\picture\image-20230301180333121.png)
+
+>  +:如果两个像素相加大于256，则按256取模    （两图像融合）
+>
+>  cv2.add():如果两个像素相加大于256，则取255   （b的轮廓看a的照片）
+
+#### 2.3.2 加权加法运算
+
+```python
+import cv2
+
+img1 = cv2.imread("../picture/demo.png", cv2.IMREAD_REDUCED_COLOR_2)
+img2 = cv2.imread("../picture/demo_one.png")
+img3 = cv2.addWeighted(img1, 0.8, img2, 0.2, 0)
+
+cv2.imshow('img1', img1)
+cv2.imshow('img2', img2)
+cv2.imshow('img3', img3)   # 加水印
+
+cv2.waitKey(0)
+```
+
+> ```python
+> dst = cv2.addWeighted(src1, alpha, scr2, beta, gamma)
+> 保存结果 = cv2.addWeighted(图像数组1, 权重1, 图像数组2, 权重2, 附加值)
+> ```
+>
+> dst = src1 * alpha + src * beta + gamma
+
+#### 2.3.3 位运算
+
+```python
+import cv2
+
+img1 = cv2.imread("../picture/one.png")
+img2 = cv2.imread("../picture/three.png")
+
+img3 = cv2.bitwise_and(img1, img2)   # 按位与
+img4 = cv2.bitwise_or(img1, img2)   # 按位或
+img5 = cv2.bitwise_not(img1)    # 按位非
+img6 = cv2.bitwise_xor(img1, img2)   # 按位异或
+
+cv2.imshow("img1", img1)
+cv2.imshow("img2", img2)
+cv2.imshow("img3", img3)
+cv2.imshow("img4", img4)
+cv2.imshow("img5", img5)
+cv2.imshow("img6", img6)
+
+cv2.waitKey(0)
+```
+
+## 3 图形用户界面
+
+### 3.1 窗口控制
+
+```python
+# 创建窗口
+cv2.namedWindow(Winname[,flags])  
+```
+
+> Winname：窗口名称
+>
+> flags：窗口属性常量
+
+```python
+# 关闭窗口
+cv2.destroyAllWindows()     # 关闭所有窗口
+cv2.destroyWindow(winname)  # 关闭指定窗口
+```
+
+```python
+# 调整窗口大小
+cv2.resizeWindow(winname,size)
+```
+
+> size：窗口大小的二元组
+
+### 3.2 绘图
+
+```python
+# 绘制直线
+cv2.line(img,pt1,pt2,color[,thinckness[,lineType[,shift]]])
+     绘制图像，起点坐标，终点坐标，颜色，粗细，线条类型，坐标的数值精度
+
+# 绘制矩形
+cv2.rectangle(img,pt1,pt2,color[,thinckness[,lineType[,shift]]])
+             一个顶点，另一个顶点
+
+# 绘制圆
+cv2.circle(img,center,radius,color[,thinckness[,lineType[,shift]]])
+               圆心坐标，半径
+
+# 绘制椭圆
+cv2.ellipse(img,center,axes,angle,startAngle,endAngle,color[,thinckness[,lineType[,shift]]])
+             圆心坐标，轴(长半轴，短半轴)，旋转角度，开始角度，结束角度
+
+# 绘制多边形
+cv2.polylines(img,pts,isClosed,color[,thinckness[,lineType[,shift]]])
+            多边形各顶点坐标，True封闭多边形
+
+# 绘制文本
+cv2.polylines(img,text,org,fontFace,fontScale,color[,thinckness[,lineType[,bottomLetOrigin]]])
+               绘制文本，文本左下角位置，字体类型，字体大小                      文本方向（True垂直镜像）
+    
+# 绘制中文
+import numpy as np
+import cv2
+from PIL import ImageFont, ImageDraw, Image
+
+img = np.zeros((200, 320, 3), np.uint8) + 255  # 创建白色图像
+fontpath = 'STSONG.TTF'  # 指定字体文件名
+font1 = ImageFont.truetype(fontpath, 36)   # 载入字体，设置字号
+img_pil = Image.fromarray(img)   # 转换成PIL格式
+draw = ImageDraw.Draw(img_pil)   # 创建draw对象
+draw.text((50, 60), '计算机视觉', font=font1, fill=(0, 0, 0))  # 绘制文本
+img = np.array(img_pil)   # 转换成数组对象
+cv2.imshow('draw', img)   # 显示成图像
+cv2.waitKey(0)
+
+# 绘制箭头
+cv2.arrowedLine(img,pt1,pt2,color[,thinckness[,lineType[,shift[,tipLength]]]])
+                                                              箭尖相对于箭头长度的比例
+```
+
+> img：用于绘制图像的图像
+>
+> pt1：起点坐标
+>
+> pt2：终点坐标
+>
+> color：颜色。BGR模型，（255,0,0）蓝色
+>
+> thickness：线条粗细。默认1。填充图形：-1
+>
+> lineType：线条类型。默认cv2.Line_8
+>
+> > ```python
+> > cv2.FILLED：  # 填充
+> > cv2.LINE_4：  # 4条连接线
+> > cv2.LINE_8：  # 8条连接线
+> > cv2.LINE_AA： # 抗锯齿线，线条更平滑
+> > ```
+>
+> shift：坐标的数值精度
+>
+> 
+>
+> center：圆心坐标
+>
+> axes：椭圆的轴。（长轴的一半，短轴的一半）
+>
+> angle：椭圆长轴的旋转角度。长轴与X轴的夹角
+>
+> startAngle：开始角度
+>
+> endAngle：结束角度
+>
+> 
+>
+> isClosed：封闭多边形：True；否则依次连接各个顶点，绘制一条曲线
+>
+> test：要绘制的文本
+>
+> org：文本左下角的位置
+>
+> fontFace：字体类型
+>
+> > ```python
+> > cv2.FONT_HERSHEY_SIMPLEX： # 正常大小的sans-serif字体
+> > cv2.FONT_HERSHEY_PLAIN: # 小号的sans-serif字体
+> > cv2.FONT_HERSHEY_DUPLEX： # 较复杂的正常大小的sans-serif字体
+> > cv2.FONT_HERSHEY_COMPLEX：# 正常大小的serif字体
+> > cv2.FONT_HERSHEY_TRIPLEX：# 较复杂的正常大小的serif字体
+> > cv2.FONT_HERSHEY_COMPLEX_SMALL：# 简化版正常大小的serif字体
+> > cv2.FONT_HERSHEY_SCRIPT_SIMPLEX：# 手写风格的字体
+> > cv2.FONT_HERSHEY_SCRIPT_COMPLEX：# 较复杂的手写风格的字体
+> > ```
+>
+> bottomLeftOrigin：文本方向。默认False。设置为True时，文本方向为垂直镜像。
+>
+> 
+>
+> tipLength：箭尖相对于箭头长度的比例。默认0.1
+
+### 3.3 响应鼠标事件
+
+```python
+# 鼠标回调函数
+def mouseCallbace(event,x,y,flags,param ...)
+    自定义函数名称 鼠标事件对象，坐标xy，常量，传递给回调函数的其他数据
+
+# 为图像窗口绑定鼠标回调函数
+cv2.setMouseCallback(wname,mouseCallback)
+                   图像窗口名称，鼠标回调函数名称
+```
+
+> event：调用时传递给函数的鼠标事件对象
+>
+> x，y：触发鼠标事件时，鼠标指针在窗口中的坐标（x,y）
+>
+> flags：触发鼠标事件时，鼠标拖动或键盘按键操作，参数可设置为下列常量
+>
+> > ```python
+> > # 鼠标左键
+> > cv2.EVENT_LBUTTONDBLCLK    # 双击
+> > cv2.EVENT_LBUTTONDOWN     # 按下
+> > cv2.EVENT_LBUTTONUP   # 释放
+> > 
+> > # 鼠标中键
+> > cv2.EVENT_MBUTTONDBLCLK  # 双击
+> > cv2.EVENT_MBUTTONDOWN  # 按下
+> > cv2.EVENT_MBUTTONUP  # 释放
+> > cv2.EVENT_MOUSEHWHEEL  # 滚动（正负代表向左向右）
+> > cv2.EVENT_MOUSEWHEEL  # 滚动（正负代表向前向后）
+> > 
+> > # 鼠标移动
+> > cv2.EVENT_MOUSEMOVE  # 鼠标移动
+> > 
+> > # 鼠标右键
+> > cv2.EVENT_RBUTTONDBLCLK  # 双击
+> > cv2.EVENT_RBUTTONDOWN  # 按下
+> > cv2.EVENT_RBUTTONUP  # 释放
+> > 
+> > # 键盘
+> > cv2.EVENT_FLAG_ALTKEY  # 按下Alt
+> > cv2.EVENT_FLAG_CTRLKEY # 按下Ctrl
+> > cv2.EVENT_FLAG_SHIFTKEY # 按下shift
+> > 
+> > # 拖动
+> > cv2.EVENT_FLAG_LBUTTON  # 按左键拖
+> > cv2.EVENT_FLAG_MBUTTON  # 按中键拖
+> > cv2.EVENT_FLAG_RBUTTON  # 按右键拖
+> > ```
+
+例子
+
+```python
+import cv2
+import numpy as np
+
+img = np.zeros((360, 400, 3), np.uint8) + 255   # 白色图像
+
+def draw(event, x, y, flags, param):
+    global img
+    if event == cv2.EVENT_MOUSEMOVE and flags == cv2.EVENT_FLAG_LBUTTON:
+        cv2.circle(img, (x, y), 5, (255, 0, 0), -1)
+    elif event == cv2.EVENT_LBUTTONDBLCLK:
+        img = np.zeros((360, 360, 3), np.uint8) + 255
+
+cv2.namedWindow("drawing")
+cv2.setMouseCallback('drawing', draw)
+while True:
+    cv2.imshow('drawing', img)
+    key = cv2.waitKey(1)
+    if key == 27:
+        break
+cv2.destroyAllWindows()
+```
+
+
+
+### 3.4 使用跟踪栏
+
+```python
+# 创建跟踪栏
+cv2.creatTrackbar(trackbarname, wname, value, count, onChange, userdata)
+                    跟踪栏名称，图像窗口名称，跟踪栏中滑块的初始位置，跟踪栏的最大值，回调函数名称，其他可选数据
+
+# 返回跟踪栏的当前值
+retval = cv2.getTrackbarPos(trackbarname, wname)
+                             跟踪栏名称，图像窗口名称
+```
+
+> count：跟踪栏的最大值。最小值为0
+>
+> onChange：跟踪栏滑块位置变化时调用的回调函数名称
+>
+> userdata：传递给回调函数的其他可选数据
+
+> ```python
+> import numpy as np
+> import cv2
+> 
+> img = np.zeros((142, 400, 3), np.uint8)
+> 
+> 
+> def doChange(x):
+>  b = cv2.getTrackbarPos('B', 'trackbar')
+>  g = cv2.getTrackbarPos('G', 'trackbar')
+>  r = cv2.getTrackbarPos('R', 'trackbar')
+>  img[:] = [b, g, r]
+> 
+> 
+> cv2.namedWindow("trackbar")
+> b = cv2.createTrackbar('B', 'trackbar', 0, 255, doChange)
+> g = cv2.createTrackbar('G', 'trackbar', 0, 255, doChange)
+> r = cv2.createTrackbar('R', 'trackbar', 0, 255, doChange)
+> while True:
+>  cv2.imshow("trackbar", img)
+>  k = cv2.waitKey(1)
+>  if k == 27:
+>      break
+> cv2.destroyAllWindows()
+> ```
+
+
+
+
+
+## 4 图像变换
+
+### 4.1 色彩空间变换
+
+常见的色彩空间包括：RGB、GRAY、XYZ、YCrCb、HSV
+
+> 在OpenCV中，RGB颜色空间的顺序是BGR
+
+```python
+# 转换色彩空间类型
+dst = cv2.cvtColor(src, code[, dstCn])
+转换后的图像    转换前原图，色彩空间类型转换码，目标图像的通道数
+```
+
+> code：
+>
+> ```python
+> cv2.COLOR_XXX2XXX
+> ```
+
+* RGB
+
+  > Red   Green   Blue 
+
+* GARY
+
+  > 8位灰度空间
+  >
+  > $Gary = 0.299R + 0.587G + 0.114B$
+
+* YCrCb
+
+  > 亮度Y、红色Cr、蓝色Cb
+  >
+  > $Y = 0.299R + 0.587G + 0.114B$
+  >
+  > $Cr = 0.713(R - Y) + delta$
+  >
+  > $Cb = 0.564(B - Y) + delta$
+  >
+  > > $delta$：
+  > >
+  > > * 128   8位图像
+  > > * 32767  16位图像
+  > > * 0.5   单精度图像
+
+* HSV
+
+  > Hue色调   Saturation饱和度  Value亮度
+
+### 4.2 几何变换
+
+几何变换是指对图像的放大、缩小、选装等各种操作
+
+#### 4.2.1 缩放
+
+```python
+# 1. 缩放
+dst = cv2.resize(src,dsize[,dst[,fx[,fy[,interpolation]]]])
+转换后的图像    缩放的原图，转换后的图像大小  水平方向的缩放比例，垂直方向的缩放比例，插值方式
+```
+
+> dsize不为None时：不管fx，fy的设置，都由（width，height）确定。
+>
+> dsize为None时：fx和fy不能为0。 宽：round(原图宽 x fx)   高：round(原图高 x fy)
+
+> `interpolation参数`
+>
+> ```python
+> cv2.INTER_NEAREST
+> cv2.INTER_LINEAR
+> cv2.INTER_CUBIC
+> cv2.INTER_AREA
+> cv2.INTER_LANCZOS4
+> cv2.INTER_LINEAR_EXACT
+> cv2.INTER_MAX
+> cv2.WARR_FILL_OUTLIERS
+> cv2.WARR_INVERSE_MAP
+> ```
+
+#### 4.2.2 翻转
+
+```python
+# 2. 翻转
+dst = cv2.flip(src,flipCode)
+                    翻转类型
+```
+
+> 0：垂直翻转
+>
+> 大于0：水平翻转
+>
+> 小于0：水平和垂直翻转
+
+#### 4.2.3 仿射
+
+==【原图像中的所有平行线在转换后的图像中仍然平行】==
+
+```python
+# 3. 仿射   【原图像中的所有平行线在转换后的图像中仍然平行】
+# 仿射：平移、旋转、缩放    
+dst = cv2.warpAffine(src,M,dsize[,dst[,flags[,borderMode[,borderValue]]]])
+#                     2x3的转换矩阵     插值方式    边类型        边界值
+```
+
+> M：是一个大小为2X3的转换矩阵，使用不同的转换矩阵可实现平移、旋转等多种操作
+>
+> dsize：转换后的图像大小
+>
+> flags：插值方式。（默认：`cv2.INTER_LINEAR`）
+>
+> borderMode：边类型。（默认：`cv2.BORDER_CONSTANT`）
+>
+> borderValue：边界值。（默认：0）
+
+```python
+# 平移
+m = np.float32(
+    [1, 0, m],
+    [0, 1, n]
+)
+
+# 缩放
+m = np.float32(
+    [h, 0, 0],
+    [0, v, 0]
+)
+
+# 旋转
+m = cv2.getRotationMatrix2D(center, angle, scale)
+            原图像中作为旋转中心的坐标，旋转角度，目标图像与原图像的大小比例
+
+# 三点映射变换
+m = cv2.getAffineTransform(src, dst)
+               原图像中3个点的坐标，原图像中3个点在目标图像中对应坐标
+```
+
+#### 4.2.4 透视
+
+==【原始图像中所有直线在转换后的图像中仍然是直线】==
+
+```python
+# 4. 透视   【原始图像中所有直线在转换后的图像中仍然是直线】
+m = cv2.getPerspectiveTransform(src,dst)
+                   原图像中4个点的坐标，原图像中4个点在目标图像中对应坐标
+```
+
+
+
+例子：
+
+```python
+import numpy as np
+import cv2
+
+img = cv2.imread('../picture/demo.png')
+sc = [1, 0.2, 0.5, 1.5, 2]
+cv2.imshow('4.2', img)
+height = img.shape[0]
+width = img.shape[1]
+while True:
+    key = cv2.waitKey(10)
+    if key == 48:  # 按0  [缩放]
+        img1 = cv2.resize(img, None, fx=0.2, fy=0.2)
+        cv2.imshow('4.2', img1)
+    elif key == 49:  # 按1  [翻转]
+        img1 = cv2.flip(img, 0)  # 垂直翻转
+        # img1 = cv2.flip(img, 1)  # 水平翻转
+        # img1 = cv2.flip(img, -1)  # 垂直水平翻转
+        cv2.imshow('4.2', img1)
+    elif key == 50:  # 按2  [仿射：平移]
+        img1 = cv2.warpAffine(src=img,
+                              M=np.float32([[1, 0, 100], [0, 1, 50]]),  # 右移100，左移50
+                              dsize=(width, height))  # 转换后的图像大小
+        cv2.imshow('4.2', img1)
+    elif key == 51:  # 按3  [仿射：缩放]
+        img1 = cv2.warpAffine(src=img,
+                              M=np.float32([[0.5, 0, 0], [0, 0.5, 0]]),  # 宽高都缩小50%
+                              dsize=(width, height))  # 转换后的图像大小
+        cv2.imshow('4.2', img1)
+    elif key == 52:  # 按4  [仿射：旋转]
+        img1 = cv2.warpAffine(src=img,
+                              M=cv2.getRotationMatrix2D(center=(width / 2, height / 2),  # 旋转中心坐标
+                                                        angle=60,  # 旋转角度。正数逆时针，负数顺时针。
+                                                        scale=0.5),  # 图像和原图像的大小比
+                              dsize=(width, height))  # 转换后的图像大小
+        cv2.imshow('4.2', img1)
+    elif key == 53:  # 按5  [仿射：三点映射变换]
+        img1 = cv2.warpAffine(src=img,
+                              M=cv2.getAffineTransform(
+                                  # 三个点：平行四边形左上角、右上角、左下角
+                                  src=np.float32([[0, 0], [width - 10, 0], [0, height - 1]]),  # 原图像三个点
+                                  dst=np.float32([[50, 50], [width - 100, 80], [100, height - 100]])),  # 在目标图像中对应的三个点
+                              dsize=(width, height))  # 转换后的图像大小
+        cv2.imshow('4.2', img1)
+    elif key == 54:  # 按6  [透视]
+        img1 = cv2.warpPerspective(src=img,
+                                   M=cv2.getPerspectiveTransform(
+                                       src=np.float32(
+                                           [[0, 0], [width - 10, 0], [0, height - 10], [width - 1, height - 1]]),
+                                       # 取四个点
+                                       dst=np.float32([[50, 50], [width - 50, 80], [50, height - 100],
+                                                       [width - 100, height - 10]])),  # 设置四个点在目标图像中的坐标
+                                   dsize=(width, height))
+        cv2.imshow('4.2', img1)
+    elif key == 27:
+        break
+```
+
+
+
+### 4.3 图像模糊
+
+图像模糊（也叫**图像平滑处理**）主要处理图像中与周围差异较大的点，将其像素值调整为与周围的点像素值近似的值。
+
+==目的：消除图像噪声和边缘==
+
+#### 4.3.1 均值滤波
+
+* 以当前点为中心，用其周围NXN个点的像素值的平均值来代替当前的像素值。
+* 用于计算平均值的NXN个邻域
+* 用于滤波计算的卷积核大小与邻域相同
+
+```python
+ dst = cv2.blur(src, ksize, [,anchor [,borderType]])
+# 滤波图像结果    原图 卷积核大小    锚点   边界值处理方式  
+```
+
+> ksize：卷积核大小。表示（width, height），通常设置为相同值，且为正数和奇数
+>
+> anchor：锚点。默认（-1，-1）。表示锚点谓语卷积核中心
+
+#### 4.3.2 高斯滤波
+
+* 按像素点与中心点的不同距离，赋予像素点的权重值，越靠近中心点的权重值越大，越远离中心的权重值越小。
+* 根据权重值计算邻域内所有像素点的和，将和作为中心的像素值
+
+```python
+ dst = cv2.GaussianBlur(src, ksize, sigmaX, [,sigmaY [,borderType]])
+#                              水平方向上的权重值，垂直方向上的权重值        
+```
+
+> * 如果sigmaY为0，则令其等于sigmaX
+>
+> * 如果sigmaX和sigmaY都为0，则按下面公式计算，ksize为（width，height）
+>
+>   ```txt
+>   sigmaX = 0.3 x ((width - 1) x 0.5 - 1) + 0.8
+>   sigmaY = 0.3 x ((height - 1) x 0.5 - 1) + 0.8
+>   ```
+
+#### 4.3.3 方框滤波
+
+* 以均值滤波为基础，可选择是否对滤波结果进行归一化
+* 如果选择进行归一化，则滤波结果为邻域内点的像素值之和的平均值
+* 否则滤波结果为像素之和
+
+```python
+ dst = cv2.boxFilter(src, ddepth, ksize, [,anchor [,normalize [,borderType]]])
+#                       目标图像的深度             True时执行归一化操作   
+```
+
+> ddepth：目标图像的深度。（-1表示与原图像的深度一致）
+>
+> normalize：（True：执行归一化。默认）  （False：不执行）
+
+#### 4.3.4 中值滤波
+
+* 将邻域内的所有像素值排序，取中间值作为邻域中心的像素值
+
+```python
+dst = cv2.medianBlur(src, ksize)
+```
+
+> ksize：卷积核大小。必须是大于1的奇数。
+
+#### 4.3.5 双边滤波
+
+* 计算像素值的同时会考虑 **距离和色差** 信息，从而可在消除噪声的同时保护边缘信息。
+* 在执行双边滤波操作时，如果像素点与当前点色差较小，赋予其较大的权重值，否则赋予其较小的权重值。
+
+```python
+ dst = cv2.bilateralFilter(src, d, sigmaColor, sigmaSpace [,borderType])
+#                       以当前点为中心的邻域的直径，双边滤波选择的色差范围，空间坐标中sigma值
+```
+
+> d：一般为5
+>
+> sigmaColor：双边滤波选择的色差范围
+>
+> sigmaSpace：空间坐标中sigma值。值越大表示越多的像素点参与滤波计算。
+>
+> > 当 d > 0：忽略sigmaSpace，由 d 决定邻域大小
+> >
+> > 否则d由sigmaSpace计算得出，与sigmaSpace成比例。
+
+#### 4.3.6 2D卷积
+
+```python
+ dst = cv2.filter2D(src, ddepth, kernel [,anchor [,delta [,borderType]]])
+#                     目标图像的深度，单通道卷积核，图像处理的锚点，修正值，边界值处理方式
+```
+
+> ddepth：目标图像dst的深度。一般用-1表示与原图像src一致
+>
+> kernel：单通道卷积核（一维数组）
+>
+> anchor：图像处理的锚点
+>
+> delta：修正值。未省略时，将加上该值作为最终的滤波结果。
+>
+> borderType：边界值处理方式
+
+
+
+
+
+### 4.4 阈值处理
+
+* 阈值处理用于剔除图像中像素值高于或者低于指定值的像素点
+
+#### 4.4.1 全局阈值处理
+
+* 将大于阈值的像素值设置为255，将其他像素值设置为0
+
+* 将大于阈值的像素值设置为0，将其他像素值设置为255
+
+```python
+#  全局阈值处理后的结果图像     是阈值类型为THRESH_BINARY和THRESH_BINARY_iNV时使用的最大值                  
+  retval, dst = cv2.threshold(src, thresh, maxval, type)
+# 返回的阈值                   原图像 设置的阈值       阈值类型
+```
+
+**1. 二值化阈值处理**
+
+>  将==大于==阈值的像素值设置为255，将其他像素值设置为0
+
+```python
+retval, dst = cv2.threshold(src, thresh, maxval, cv2.THRESH_BINARY)
+```
+
+**2. 反二值化阈值处理**
+
+>  将==大于==阈值的像素值设置为0，将其他像素值设置为255
+
+```python
+retval, dst = cv2.threshold(src, thresh, maxval, cv2.THRESH_BINARY_INV)
+```
+
+**3. 截断阈值处理**
+
+> 将==大于==阈值的像素值设置为阈值，其余像素值保持不变
+
+```python
+retval, dst = cv2.threshold(src, thresh, maxval, cv2.THRESH_TRUNC)
+```
+
+**4. 超阈值零处理**
+
+>  将==大于==阈值的像素值设置为0，其余像素值保持不变
+
+```python
+retval, dst = cv2.threshold(src, thresh, maxval, cv2.THRESH_TOZERO_INV)
+```
+
+**5. 低阈值零处理**
+
+>  将==小于==阈值的像素值设置为0，其余像素值保持不变
+
+```python
+retval, dst = cv2.threshold(src, thresh, maxval, cv2.THRESH_TOZERO)
+```
+
+**6. Otsu算法阈值处理**
+
+> 对于色彩不均衡的图像，这样处理更好，他会遍历当前图像的所有阈值，再选择最佳阈值
+
+```python
+retval, dst = cv2.threshold(src, thresh, maxval, 阈值类型 + cv2.THRESH_OTSU)
+```
+
+**7. 三角算法阈值处理**
+
+> 
+
+```python
+retval, dst = cv2.threshold(src, thresh, maxval, 阈值类型 + cv2.THRESH_TRIANGLE)
+```
+
+
+
+#### 4.4.2 自适应阈值处理
+
+* 也称 **局部阈值处理**
+* 通过计算每个像素点邻域的加权平均值来确定阈值，并用该阈值处理当前像素点
+* <u>全局阈值处理</u>适用于 **色彩均衡的图像**，<u>自适应阈值处理</u>适用于 **明暗差异较大的图像**
+
+```python
+     dst = cv2.adaptiveThreshold(src, maxValue, adaptiveMethod, thresholdType, blockSize, C)
+#阈值处理的结果图像                 原图像   最大值      自适应方法      阈值处理方式   计算局部阈值的邻域大小  常量
+```
+
+> 自适应方法：
+>
+> * cv2.ADAPTIVE_THRESH_MEAN_C（邻域中所有像素点的权重值相同）
+> * cv2.ADAPTIVE_THRESH_GAUSSIAN_C（邻域中所有像素点的权重值与其到中心点的距离有关，通过高斯方程可计算各个点的权重值）
+>
+> 阈值处理方式：
+>
+> * cv2.THRESH_BINARY（二值化阈值处理）
+> * cv2.THRESH_BINARY_INV（反二值化阈值处理）
+>
+> C：常量。自适应阈值为blockSize指定邻域的加权平均值减去C
+
+
+
+### 4.5 形态变换
+
+* 主要用于二值图像的形状操作，实现原理基于数字形态学
+* 数字形态学也成形态学，它主要从图像内部提取信息来描述图像形态
+
+#### 4.5.1 形态操作内核
+
+```python
+ retval = cv2.getStructuringElement(shape, ksize)
+#                                   内核形状 内核大小（行数,列数）
+```
+
+> cv2.MORPH_RECT	矩形
+>
+> cv2.MORPH_CROSS 	十字形
+>
+> cv2.MORPH_ELLIPSE 	椭圆形
+
+#### 4.5.2 腐蚀
+
+> 取最小值 
+>
+> 会使白色区域的边缘像素值减少，从而使白色区域的面积减少
+>
+> 迭代次数越多，腐蚀效果越明显
+>
+> 内核越大，腐蚀效果越明显
+
+```python
+dst = cv2.erode(src, kernel[, anchor[, iterations[, borderType[, borderValue]]]])
+```
+
+> src：原图像
+>
+> kernel：内核。默认3x3全1的矩阵
+>
+> anchor：锚点。默认（-1，-1），表示锚点为内核中心
+>
+> iterations：迭代次数。默认1
+>
+> borderType：边界类型。默认BORDER_CONSTANT
+>
+> borderValue：边界值。
+
+#### 4.5.3 膨胀
+
+> 取最大值
+>
+> 会使白色区域的边缘像素值增大，从而使白色区域的面积增大
+>
+> 迭代次数越多，膨胀效果越明显
+>
+> 内核越大，膨胀效果越明显
+
+```python
+dst = cv2.dilate(src, kernel[, anchor[, iterations[, borderType[, borderValue]]]])
+```
+
+#### 4.5.4 高级形态操作
+
+```python
+dst = cv2.morphologyEX(src, op, kernel [,anchor [,iterations [,borderType [,borderValue]]]])
+```
+
+> op：形态操作类型
+>
+> > ```python
+> > op = cv2.MORPH_OPEN   # 开运算 [先腐蚀再膨胀]
+> > op = cv2.MORPH_CLOSE  # 闭运算 [先膨胀再腐蚀]
+> > op = cv2.MORPH_GRADIENT # 形态学梯度运算 [膨胀减去腐蚀]
+> > op = cv2.MORPH_BLACKHAT # 黑帽运算 [闭运算减去原图像]
+> > op = cv2.MORPH_TOPHAT   # 礼帽运算 [原图像减去开运算]
+> > ```
+
+> * 开运算：去除图像中的噪声，消除较小连通域，保留较大连通域
+> * 闭运算：去除连通域的小型空间，平滑物体轮廓，连接两个临近的连通域
+
+
+
+
+
+## 5 边缘和轮廓
+
+* 图像的边缘是指图像中灰度值发生急剧变化的位置
+* 边缘检测的目的是唯一绘制出边缘线条
+
+### 5.1 边缘检测
+
+#### 5.1.1 Lapacian边缘检测 
+
+> 拉普拉斯边缘检测
+
+> * 使用 **图像矩阵** 与 **拉普拉斯核** 进行卷积运算
+> * 本质是计算图像中任意一点与其在水平方向和垂直方向上4个相邻点平均值的差值
+
+```python
+dst = cv2.Laplacian(src, ddepth [,ksize [,scale [,delta [,borderType]]]])
+
+# 边缘检测结果图像 = cv2.Laplacian(原图像, 目标图像的深度 [,用于计算二阶导数滤波器的系数（正数奇数） [,可选比例因子 [,添加到边缘检测结果中的可选增量值 [,边界值类型]]]])
+```
+
+#### 5.1.2 Sobel边缘检测
+
+> * 将 **高斯滤波** 和 **微分** 结合起来执行图像卷积运算
+> * 结果具有一定的抗噪性
+
+```python
+dst = cv2.Sobel(src, ddepth, dx, dy [,ksize [,scale [,delta [,borderType]]]])
+
+# 边缘检测结果图像 = cv2.Laplacian(原图像, 目标图像的深度, 导数x的阶数, 导数y的阶数 [,扩展的Sobel内核大小（1357） [,计算导数的可选比例因子 [,添加到边缘检测结果中的可选增量值 [,边界值类型]]]])
+```
+
+#### 5.1.3 Canny边缘检测
+
+> 1. 使用高斯滤波去除图像噪声
+> 2. 使用sobel核进行滤波，计算梯度
+> 3. 在边缘使用非最大值抑制
+> 4. 对检测出的边缘使用双阈值以去除假阳性
+> 5. 分析边缘之间的连续性，保留真正的边缘，消除不明显的边缘
+
+```python
+dst = cv2.Canny(src, threshold1, threshold2 [,apertureSize [,L2gradient]])
+
+# 边缘检测结果图像 = cv2.Laplacian(原图像, 第1阈值, 第2阈值 [,计算梯度时使用的Sobel核大小 [,标志]])
+```
+
+
+
+
+
+### 5.2 图像轮廓
+
+#### 5.2.1 查找轮廓
+
+> 从 **二值图像** 中查找图像轮廓
+
+```python
+contours, hierarchy = cv2.findContours(image, mode, method [,offset])
+
+# 返回的轮廓，返回的轮廓的层次结构 = cv.findContours(原图像，轮廓的检索模式，轮廓的近似方法 [,每个轮廓点移动的可选偏移量])
+```
+
+> * 返回结果：返回一个list对象，保存了轮廓数组。轮廓数组的每个元素都是一个表示轮廓的array对象；返回的轮廓层次是一个numpy.ndarray对象
+>
+> * 轮廓层次：根据轮廓的嵌套关系，可将轮廓之间的层次关系分为父级和子级，外部的轮廓为父级，内部轮廓为子级。[下一个轮廓   前一个轮廓   第一个子级轮廓   父级轮廓]
+>
+> * 轮廓的检索模式：
+>
+>   ```python
+>   cv2.RETR_LIST：仅检索所有轮廓，不创建任何父子关系
+>   cv2.RETR_EXTERNAL:仅检索所有的的外部轮廓，不包含子集轮廓
+>   cv2.RETR_CCOMP:检索所有的轮廓并将他们排列为2级层次结构，所有的外部轮廓为1级，所有的子级轮廓为2级
+>   cv2.RETR_TREE：检索所有轮廓并创建完整的层次列表
+>   ```
+>
+> * 轮廓的近似方法：
+>
+>   ```python
+>   cv2.CHAIN_APPROX_NONE：存储所有轮廓点，轮廓的任意两个相邻点是水平、垂直或对角线上的邻居
+>   cv2.CHAIN_APPOX_SIMPLE:只保存水平、垂直和对角线的端点
+>   cv2.CHAIN_APPROX_TC89_L1：应用Teh-Chin链逼近算法中的一种确定轮廓点
+>   ```
+
+> ```python
+> # 例子：查找轮廓
+> import cv2
+> import numpy as np
+> 
+> img = cv2.imread("../picture/five.png")
+> cv2.imshow('original', img)
+> gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+> ret, img2 = cv2.threshold(gray, 125, 255, cv2.THRESH_BINARY)
+> c, h = cv2.findContours(img2, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+> print('轮廓：', c)
+> print('轮廓类型：', type(c))
+> print('轮廓个数：', len(c))
+> print('层次：', h)
+> print('层次类型：', type(h))
+> for n in range(3):
+>  img3 = np.zeros(img.shape, np.uint8) + 255
+>  cv2.polylines(img3, [c[n]], True, (255, 0, 0), 2)
+>  cv2.imshow('%s' % n, img3)
+> cv2.waitKey(0)
+> cv2.destroyAllWindows()
+> ```
+
+#### 5.2.2 绘制轮廓
+
+```python
+image = cv2.drawContours(image, contours, contourIdx, color [,thickness [,lineType [,hierarchy [,maxLevel [,offset]]]]])
+
+# image = cv2.drawContours(在其中绘制轮廓的图像, 要绘制的轮廓, 要绘制的轮廓的索引, 轮廓颜色 [,画笔的粗细 [,使用的线型 [,对应cv2.findContours()函数返回的轮廓层次 [,可绘制的最大轮廓层次深度 [,绘制轮廓的偏移位置]]]]])
+```
+
+#### 5.2.3 轮廓特征
+
+1. **轮廓的矩：**
+
+   > 轮廓的各种几何特征：面积、位置、角度、形状
+
+   ```python
+   ret = cv2.moents(array [,binaryImage])
+   
+   # 轮廓距 = cv2.moents(轮廓的数组 [,True时，会将array对象中的所有非0值设置为1])
+   ```
+
+   > ret: 返回轮廓矩【字典】。零阶矩表示轮廓的面积
+   > array：轮廓的数组
+   > binarylmage：True：会将array对象中的所有非0值设置为1
+
+2. **轮廓的面积**
+
+   ```python
+   ret = cv2.contourArea(contour [,oriented])
+       
+   # 返回的面积 = cv2.contourArea(轮廓 [,True返回值的正负表示顺逆时针，False表示返回值为绝对值])
+   ```
+
+3. **轮廓的长度**
+
+   ```python
+   ret = cv2.arcLength(contour,closed)
+   
+   # 返回的长度 = cv2.arcLength(轮廓, True表示轮廓是封闭的)
+   ```
+
+4. **轮廓的近似多边形**
+
+   ```python
+   ret =  cv2.approxPolyDP(contour, epsilon, closed)
+   ```
+
+   > ret: 返回的近似多边形
+   > contour：轮廓
+   > epsilon：精度。表示近似多边形接近轮廓的最大距离
+   > closed：布尔值。True：表示轮廓是封闭的
+
+5. **轮廓的凸包**
+
+6. **轮廓的直边界矩形**
+
+7. **轮廓的旋转矩形**
+
+8. **轮廓的最小外包园**
+
+9. **轮廓的拟合椭圆**
+
+10. **轮廓的拟合直线**
+
+11. **轮廓的最小外包三角形**
+
+### 5.3 霍夫变换
+
+#### 5.3.1 霍夫直线变换
+
+```python
+# 利用霍夫变换算法检测图像中的直线
+lines = cv2.HoughLines(image, rho, theta, threshold)
+```
+
+```python
+# 利用概率霍夫变换算法来检测图像中的直线
+lines = cv2.HoughLinesP(image, rho , theta, threshold [,minLineLength[,maxLineGap]])
+```
+
+#### 5.3.2 霍夫圆变换
+
+
+
+
+
+
+
+
+
+5.3 霍夫变换
+    5.3.1 霍夫直线变换
+        
+
+    5.3.2 霍夫圆变换
+
+​            ret：面积
+​            contour：轮廓
+​            oriented：True：返回的正与负表示轮廓是顺时针还是逆时针；  False：返回绝对值
+​    轮廓的长度：
+​        
+​            ret：返回的长度
+​            contour：轮廓
+​            closed：布尔值。True：表示轮廓是封闭的
+​    轮廓的近似多边形
+​    
+​            
+
+
+
+# 五、类库
+
+## 1 turtle
+
+turtle库：	海龟 	turtle绘图体系的Python实现
+	
+turtle绘图体系：	1969年诞生	主要用于程序入门设计
+
+库：
+	python计算生态 = 标准库 + 第三方库
+	标准库：随解释器直接安装到操作系统中的功能模块
+	第三方库：需要经过安装才能使用的功能模块
+
+turtle的绘图窗体：
+	turtle.setup(width,height,startx,starty)
+	                        长         高     内宽    内高          
+
+   	1. setup()设置窗体大小及位置
+       2. 4个参数中后两个可选  （默认正中心）
+       3. setup()不是必须的
+          #屏幕左上角（0，0）
+          #窗体左上角（startx，starty）
+
+
+turtle空间坐标系：
+	turtle.goto(x, y)	【绝对坐标】
+	                  x轴  y轴
+	turtle.bk(d)	【后退方向】
+	turtle.fd(d)	【前进方向】
+	turtle.circle(r,angle)	【左侧点为圆心，曲线运行】
+
+```txt
+	     左侧方向
+后退方向		    前进方向
+	     右侧方向
+```
+
+turtle角度坐标体系：
+	turtle.seth(angle)	【绝对角度】
+
+	1. seth()改变海龟行进方向
+	2. setch()只改变方向但不行进
+	3. angle为绝对度数
+
+```txt
+	      90/-270
+180/-180		     0/360
+	      270/-90
+```
+
+		turtle.left(angle)
+	------	    【海龟角度】	------
+		turtle.right(angle)
+
+
+RGB色彩体系：（红绿蓝）
+	 有三种颜色构成的万物色：
+		整数：0-255	小数：0-1（默认）
+
+```python
+turtle.colormode(mode)	#1.0  小数模式	255  整数模式
+
+white	255,255,255		1,1,1	白色
+yellow	255,255,0		1,1,0	黄色
+magenta	255,0,255		1,0,1	洋红
+cyan	0,255,255		0,1,1	青色
+bule	0,0,255			0,0,1	蓝色
+black	0,0,0			0,0,0	黑色
+```
+
+库引用：（ <a>.<b>() ）
+
+​		import <库名>
+​			<库名>.<函数名>(<函数参数>)
+​	
+​		from <库名> import <函数名>
+​		from <库名> import *
+​		<函数名>(<函数参数>)
+
+​		import <库名> as <库别名>
+​		<库别名>.<函数名>(<函数参数>)
+
+turtle画笔控制函数：（成对出现）
+	turtle.penup()	=>	turtle.pu()	抬起画笔，海龟在飞行
+	turtle.pendown()	=>	turtle.pd()	落下画笔，海龟在爬行
+	turtle.pensize(width)   =>	turtle.width(width)	画笔的宽度，海龟的腰围
+	turtle.pencolor(color)    =>	(颜色字符串/RGB的小数值/RGB的元祖值)
+
+运动控制函数：（走直线 & 走曲线）
+	turtle.forward(d)	===>	turtle.fd(d)	向前行进，海龟走直线（d：正负值）
+	turtle.circle(r,extend=None)	 (半径，绘制的弧度)
+
+
+方向控制函数：（绝对角度 & 海龟角度）
+	turtle.setheading(angle)	===>	turtle.seth(angle)	改变行进方向，海龟走角度
+	turtle.left(angle)	海龟向左转
+	turtle.right(angle)	海龟向右转
+
+
+循环语句：
+	for <变量> in range(<参数>)
+		<被循环执行的语句>
+
+range()函数：
+	range(N)		产生0到N-1的整数序列，共N个
+	range(M,N）	产生M到N-1的整数序列，共N-M个
+	
+
+	range(5)	   ===>  0,1,2,3,4,
+	range(2,5)  ===>  2,3,4
+
+turtle.done()：
+	程序运行结束，窗体不会自动退出，需要手动退出
+
+
+
+
+
+# pytorch
+
+
+
+## 1. 深度学习框架
+
+### 1.1 发展
+
+* 2002	Torch
+* 2011    Torch7
+* 2016
+* 2018.12
+* 2019.5
+
+
+
+### 1.2 同类框架
+
+* Google
+  * theano
+  * **TensorFlow ** （静态图）
+  * Keras
+* Facebook
+  * Torch 7 
+  * Caffe
+  * **pytorch** + caffe2  （动态图）
+* Amazon
+  * mxnet
+
+
+
+### 1.3 pytorch生态
+
+* PyTorch NLP
+* Allen Nlp
+* TorchVision
+* PyTorch geometric
+* Fast.ai
+* ONNX
+
+
+
+## 2 安装
+
+### 2.1 安装Anaconda
+
+### 2.2 NVIDIA显卡
+
+1. 百度搜索：cuda download
+
+2. 进入官网：[CUDA Toolkit 12.1 Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=10)
+
+   * windows
+   * x86_64
+   * 11
+   * exe（local）
+   * Download
+
+   ```window
+   mvcc -V
+   ```
+
+### 2.3 安装pytorch
+
+### 2.4 安装PyCharm
+
+```python
+# 测试
+import torch
+print(torch.__version__)
+print('gpu:',torch.cuda.is_available())
+```
+
+
+
+## 3 回归问题
 
